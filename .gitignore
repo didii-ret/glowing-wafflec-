@@ -30,3 +30,43 @@
 *.exe
 *.out
 *.app
+5-2：
+template<class T>
+void changelengthID(T*& a, int oldLength,int newLength)
+{
+if (newLength < 0)
+  throw illegalParameterValue("new length must be >= 0");
+  
+  T* temp + new T[newLength];            //新数组
+  int number = min(oldLength ,newLength);//需要复制的元素个数
+  copy（a, a + number, temp);
+  delete [] a;                           //释放老数组的内存空间
+  a = temp;
+ }
+ 5-3
+ template<class T>
+ Class arrayList : public linearList<T>
+ {
+    public:
+    //构造函数，复制构造函数和析构函数
+    arrayList (int initialCapacity = 10);
+    arrayList (const arrayList <T> &);
+    ~arrayList () {delete [] element:}\
+    //ADT方法
+    bool empty() const {return listSize == 0;}
+    int size() const {return listSize;}
+    T& get(int theIndex) const;
+    int indexof(const T& theElement) const;
+    void erase(int theIndex);
+    void insert(int theIndex, const T& theElement);
+    void output(ostream& out) const;
+    
+    //其他方法
+    int capacity () const {return arrayLength;}
+    
+  protected:
+    void checkIndex(int theIndex) const;
+        //若索引theIndex 无效，则抛出异常
+    T* element;                     //储存线性表元素的一维数组
+    int arrayLength;                //一维数组的容量
+    int listSize;                   //线性表的元素个数
